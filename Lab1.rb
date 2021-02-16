@@ -18,7 +18,7 @@ end
 def check(a, b)
   if a == 20
     return a
-  elsif b == 20 then
+  elsif b == 20
     return b
   else
     return a + b
@@ -26,8 +26,7 @@ def check(a, b)
 end
 
 def menu
-  run = true
-  while run do
+  loop do
     puts '============================'
     puts '1. Приветствие'
     puts '2. Проверка чисел'
