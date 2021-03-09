@@ -1,5 +1,6 @@
-def task1(num, word)
-  if word[-2, word.length] == 'CS'
+def task1(line)
+  word = line.split(" ")[1]
+  if word[-2, word.length].upcase == 'CS'
     puts 2**word.length
   else
     puts word.reverse
@@ -31,11 +32,9 @@ def menu
     choose = gets.to_i
     case choose
     when 1
-      puts 'Введи число'
-      a = gets.to_i
-      puts 'Введи слово'
-      word = gets.chomp
-      task1(a, word)
+      puts 'Введи число и слово'
+      a = gets.chomp
+      task1(a)
     when 2
       task2
     else
