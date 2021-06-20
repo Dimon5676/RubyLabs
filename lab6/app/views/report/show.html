@@ -1,0 +1,24 @@
+<h2><%= @report.title %></h2>
+<p><%= @report.description %></p>
+<hr>
+<%= link_to "Изменить", edit_report_path(@report), :class => 'btn btn-info' %>
+<%= link_to "Удалить", report_path(@report), method: :delete, data: {confirm: "Подтвердите действие?"}, :class => 'btn btn-outline-danger' %>
+<hr>
+<h3>Все оценки</h3>
+<% @report.marks.each do |mark| %>
+<div class="alert alert-ligth">
+    <p><%= mark.points %>(<%= mark.letter %>)</p>
+    <%= link_to "Удалить", [mark.report, mark], method: :delete, data: {confirm: "Are you sure?"}, :class => 'btn btn-outline-danger' %>
+</div>
+<% end %>
+<hr>
+<h3>Оценки</h3>
+<%= form_for([@report, @report.marks.build]) do |f| %>
+<p>
+    Новая оценка<br>
+    <%= f.text_field(:points, {:class => 'form-control'}) %>
+</p>
+<p>
+    <%= f.submit("Оценить", {:class => 'btn btn-outline-success'}) %>
+</p>
+<% end %>

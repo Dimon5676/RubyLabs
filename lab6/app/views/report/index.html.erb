@@ -1,0 +1,8 @@
+<% @report.each do |report| %>
+  <div class="alert">
+    <h3><%= report.title %></h3>
+    <p><%= report.description %></p>
+    <%= link_to "Открыть полностью", report_path(report), :class => "btn btn-outline-primary" %>
+  </div>
+
+<% end %>
